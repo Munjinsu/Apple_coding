@@ -1,0 +1,13 @@
+[리액트 오류 사항들]
+
+/**** 프로젝트가 안만들어짐 *****/
+
+node.js 버전을 낮춤 
+v22.12.0  -->  v18.20.5
+
+/**** 서버 실행시 오류 ****/
+Cannot find module 'ajv/dist/compile/codegen'
+
+터미널 창 
+npm install ajv@latest ajv-keywords@latest 
+실행
