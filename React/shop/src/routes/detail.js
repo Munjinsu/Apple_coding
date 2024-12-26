@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { Nav } from 'react-bootstrap';
-
+import { addCart } from './../store.js'
+import { useDispatch } from 'react-redux';
 
 
 
@@ -10,6 +11,7 @@ function Detail(props){
     let [count, setCount] = useState(0);
     let [value, setValue ] = useState("")
     let [tab, setTab] = useState(0);
+    let dispatch = useDispatch();  
     
     useEffect(()=>{ 
         if(isNaN(value) == true){
@@ -24,6 +26,14 @@ function Detail(props){
     let findId = props.shoes.find((x)=>{  
         return x.id == page
     })
+
+    let localBox = []
+    let currentSave = page;
+  
+    localBox.push(currentSave)
+    
+    console.log(localBox)
+
 
     return(
         <div className="container">
@@ -45,7 +55,9 @@ function Detail(props){
                     <h4 className="pt-5">{findId.title}</h4>
                     <p>{findId.content}</p>
                     <p>{findId.price}원</p>
-                    <button className="btn btn-danger">주문하기</button> 
+                    <button className="btn btn-danger" onClick={()=>{
+                        dispatch(addCart({id : findId.id, name : findId.title, count : 1}))
+                    }}>주문하기</button> 
                 </div>
             </div>
 
