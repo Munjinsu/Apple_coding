@@ -1,19 +1,21 @@
 import {Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
 import './App.css';
-import { useState } from 'react';  
+import { createContext, useState } from 'react';  
 //import bg from './bg.png'
 // import 작명 from './data'   ** 변수가 1개일때 
 //import {a, b} from './data'    /* 변수가 1개이상일때   작명 안됨 */
 import data from './data'; 
 import {Routes, Link, Route, useNavigate, Outlet} from 'react-router-dom';
 import Detail from './routes/detail';
-import axios from 'axios';
-import Cart from './routes/Cart';
+import axios from 'axios'
 
+export let Context1 = createContext();  // state 보관함임  Context 세팅 1
 
 function App() {
   let [shoes , setShoes] = useState(data);  /* Hook = 유용한 함수가 들어는거   */
   let navigate = useNavigate();   /* useNavigate  페이지 이동을 도와주는 함수  */
+
+  let [재고] = useState([10, 11, 12]) //  <- Detail > HandleTab 에서 사용 가능 하게   Context 세팅 1
 
   // let [moreShoes, setMoreShoes] = useState();
   // let [moreShow, setMoreShow] = useState(false);
@@ -79,12 +81,12 @@ function App() {
           </>
         } />
         <Route path='/detail/:page' element={
-            <Detail shoes={shoes}/>    
-         
+
+          <Context1.Provider value={{ 재고 }}>   {/*// Context 세팅 2*/}
+          <Detail shoes={shoes}/>    {/*  여기안에 모든 컴퍼넌트는 {재고, shoes} 사용 가능능 */}
+          </Context1.Provider>
+
         } />    {/* 페이지를 여러개 만들고 싶은면 URL파라미터를 쓴다. */}
-
-        <Route path='/cart' element={<Card />}/>
-
 
         <Route path='*' element={<div> 없는 페이지 입니다. </div>}/> 
 

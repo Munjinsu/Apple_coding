@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { Nav } from 'react-bootstrap';
 
-
+import { Context1 } from './../App'
 
 
 function Detail(props){
+
+    let {재고} = useContext(Context1)  // 보관함 해체 함수 
+    
 
     let [count, setCount] = useState(0);
     let [value, setValue ] = useState("")
@@ -27,6 +30,8 @@ function Detail(props){
 
     return(
         <div className="container">
+
+            <div>{재고}</div>
 
             {count}
             <button onClick={()=>{
@@ -72,6 +77,8 @@ function HandleTab({tab, tabShose}){
 
     let [fade, setFade] = useState("")
 
+    let {재고} = useContext(Context1)  // 보관함 해체 함수 
+
     useEffect(()=>{
 
         let timer = setTimeout(()=>{
@@ -96,7 +103,7 @@ function HandleTab({tab, tabShose}){
     return (
         <div className={`start ${fade}`}>
         {[<div>{tabShose[0].title}</div>,<div>내용1</div>,<div>내용2</div>][tab]}
-        
+        {재고}
         </div>
     )
 

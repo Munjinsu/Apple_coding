@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom"
 import { Nav } from 'react-bootstrap';
 
 
-
-
 function Detail(props){
 
     let [count, setCount] = useState(0);
@@ -63,12 +61,12 @@ function Detail(props){
                 </Nav.Item>
             </Nav>
 
-            <HandleTab tab={tab} tabShose={props.shoes}/>
+            <HandleTab tab={tab}/>
         </div>
     )
 }
 
-function HandleTab({tab, tabShose}){
+function HandleTab({tab}){
 
     let [fade, setFade] = useState("")
 
@@ -95,8 +93,7 @@ function HandleTab({tab, tabShose}){
 
     return (
         <div className={`start ${fade}`}>
-        {[<div>{tabShose[0].title}</div>,<div>내용1</div>,<div>내용2</div>][tab]}
-        
+        {[<div>내용0</div>,<div>내용1</div>,<div>내용2</div>][tab]}
         </div>
     )
 
@@ -104,17 +101,3 @@ function HandleTab({tab, tabShose}){
 
 
 export default Detail
-
-
-/* single page Application 단점 
-    - 컴퍼넌트 간 state 공유 어려움 
-        (부모 컨퍼넌트 -> 자식 컴퍼넌트 props 로 전송가능 )
-
-    **  props 중첩 싫으면 **
-    1. Context API (리액트 기본문법) 사용
-    2. Redux 등 외부라이브러리 사용
-
-    == 실전에는 Context API를 많이 사용 x (성능이슈, 컴퍼넌트 재활용 어려움)
-
-
-*/
