@@ -28,6 +28,28 @@
         </div>
       </div>
 
+
+      <script>
+        document.querySelector('#login-form').addEventListener('submit', function(e){
+            e.preventDefault();
+            let pwInput = document.getElementById('pw-input');
+            let pwValue = pwInput.value;
+
+            /* 영문 숫자 조합 8자리이상 */
+            let reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
+            
+            if(reg.test(pwValue)){
+              console.log('통과')
+            }
+            else (
+              console.log('다시 입력력')
+            )
+
+        })
+
+
+      </script>
+
  
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
@@ -37,18 +59,6 @@
           </button>
         </div>
       </nav> 
-
-      <script>
-
-        /*
-            
-        
-        */
-
-
-      </script>
-
-
 
 
     <ul class="list-group">

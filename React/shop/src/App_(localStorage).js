@@ -1,33 +1,21 @@
 import {Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
 import './App.css';
-import { lazy, useEffect, Suspense, useState } from 'react';  
+import { useEffect, useState } from 'react';  
 //import bg from './bg.png'
 // import 작명 from './data'   ** 변수가 1개일때 
 //import {a, b} from './data'    /* 변수가 1개이상일때   작명 안됨 */
 import data from './data'; 
 import {Routes, Link, Route, useNavigate, Outlet} from 'react-router-dom';
-
+import Detail from './routes/detail';
 import axios from 'axios';
-
-// import Cart from './routes/Cart.js';
-// import Detail from './routes/detail';
-
-
+import Cart from './routes/Cart.js';
 import { useDispatch, useSelector } from 'react-redux';
-//import { arrayItem, watched } from './store.js'
-
-
+import { arrayItem, watched } from './store.js'
 
 
 
 
 function App() {
-
-  // 필요할때 import 해주세요 ~~~
-  const Cart = lazy(() => import('./routes/Cart.js'));  
-  const Detail = lazy(() => import('./routes/detail.js'))
-
-
   let [shoes , setShoes] = useState(data);  /* Hook = 유용한 함수가 들어는거   */
   let [재고] = useState([10, 11, 12])
   let navigate = useNavigate();   /* useNavigate  페이지 이동을 도와주는 함수  */
@@ -50,7 +38,7 @@ function App() {
    
 
   useEffect(()=>{
-    localStorage.setItem('watched2', JSON.stringify([]))
+    // localStorage.setItem('watched2', JSON.stringify([]))
     
     if(localStorage.getItem('watched2') !== null){
       return false  
@@ -61,13 +49,13 @@ function App() {
   },[])
 
   
-  // useEffect(()=>{
-  //     localStorage.setItem('watched', JSON.stringify(arrayItem))
+  useEffect(()=>{
+      localStorage.setItem('watched', JSON.stringify(arrayItem))
       
-  // },[arrayItem])
+  },[arrayItem])
 
-  //     let watchedItem = localStorage.getItem('watched')
-  //     let ArrayWatchedItem = JSON.parse(watchedItem);
+      let watchedItem = localStorage.getItem('watched')
+      let ArrayWatchedItem = JSON.parse(watchedItem);
 
   // let [moreShoes, setMoreShoes] = useState();
   // let [moreShow, setMoreShow] = useState(false);
@@ -86,7 +74,7 @@ function App() {
         </Container>
       </Navbar>
     
-      <Suspense fallback={<div> 로딩중 </div>}>
+
       <Routes>
         <Route path='/' element={
           <>
@@ -142,19 +130,13 @@ function App() {
             
           </>
         } />
-        <Route path='/detail/:page' element={
-          //<Suspense fallback={<div> 로딩중 </div>}>
-            <Detail shoes={shoes}/>
-          //</Suspense>
-          
-          } />    {/* 페이지를 여러개 만들고 싶은면 URL파라미터를 쓴다. */}
+        <Route path='/detail/:page' element={<Detail shoes={shoes}/>} />    {/* 페이지를 여러개 만들고 싶은면 URL파라미터를 쓴다. */}
 
         <Route path='/cart' element={<Cart />}/>
 
         <Route path='*' element={<div> 없는 페이지 입니다. </div>}/> 
 
       </Routes>
-      </Suspense>
     </div>
   );
 }
@@ -168,7 +150,7 @@ function Card(props){
       <img src={`https://codingapple1.github.io/shop/shoes${props.shoes.id+1}.jpg`} width="80%"/>
       <h4 onClick={()=>{
         props.navigate(`/detail/${props.shoes.id}`);
-        // dispatch(watched(props.shoes.id))
+        dispatch(watched(props.shoes.id))
 
         }} style={{cursor:'pointer'}} >{props.shoes.title}</h4>
       <p>{props.shoes.content}</p>

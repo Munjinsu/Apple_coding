@@ -27,12 +27,18 @@ function Detail(props){
         return x.id == page
     })
 
-    let localBox = []
-    let currentSave = page;
-  
-    localBox.push(currentSave)
-    
-    console.log(localBox)
+
+    useEffect(()=> {
+        
+        let getWatch2 = localStorage.getItem('watched2')
+        getWatch2 = JSON.parse(getWatch2)
+        getWatch2.push(findId.id)
+        getWatch2 = new Set(getWatch2)  // 중북아이템 제거
+        getWatch2 = Array.from(getWatch2)  // 다시 Array로 만듬듬
+        console.log(getWatch2)
+        localStorage.setItem('watched2', JSON.stringify(getWatch2))
+        
+    }, [])
 
 
     return(

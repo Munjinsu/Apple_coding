@@ -1,0 +1,41 @@
+.alert-box {background-color: skyblue; padding: 20px; color: white; border-radius: 5px; display: none;}
+
+.list-group {display: none;}
+
+.show {display: block;}
+
+.black-bg {
+    visibility: hidden;  /* display ; none 는 애니메이션이 안먹음음 */
+    width : 100%;
+    height : 100%;
+    position : fixed;
+    background : rgba(0,0,0,0.5);
+    z-index : 5;
+    padding: 30px;
+    opacity: 0;
+    transition: all 1s;
+  }
+
+  .white-bg {
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+  } 
+  
+  .show-modal {
+    visibility: visible;
+    opacity: 1;
+}
+
+  /*  one-way 애니메이션 만드는법  */
+  /*
+    1.시작스타일 
+    2.최종스타일 
+    3.원할때 최종스타일로 변하라고 코드짬
+    4.transition 추가 
+  */
+
+  .main-bg {
+    padding: 100px 20px;
+    background: lightgrey;
+  }

@@ -28,7 +28,73 @@
         </div>
       </div>
 
- 
+      <script>
+      
+        /**** input  /  change   차이점  *********/
+        // document.getElementById('id-input').addEventListener('input', function(){  //  input 내용이 변할때 마다 이벤트 발생
+        //     console.log('aaaa')
+        // })
+
+        // document.getElementById('id-input').addEventListener('change', function(){  //  input에 입력한 값이 바뀌고 포커스를 잃을때 발생생
+        //     console.log('aaaa')
+        // })
+        
+
+        /*
+        ---- truthy 자료 ----
+        0제외 숫자 
+        '문자'
+        []
+        {}
+        
+
+        ---- falsy 자료 ----
+        0
+        ""
+        null
+        undefined
+        NaN
+
+        */
+
+        /* 369 버전 (3의배수)  */
+
+        function 삼육구게임(num){
+            if(num % 9 == 0){
+                console.log('박수 박수')
+            }
+            else if (num % 3 == 0){
+                console.log('박수')
+            } 
+            else (
+                console.log('통과')
+            ) 
+        }
+
+        삼육구게임(18)
+
+        /* 테스트 2 */
+
+        function 합격(a,b){
+            if(a + b > 120 && a > 40 && b > 40){
+                console.log('합격')
+             
+            } else {
+                console.log('불합격')
+            }
+        }
+
+        합격(50,50)
+
+
+
+
+
+
+
+      </script>
+
+
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">Navbar</span>
@@ -37,19 +103,6 @@
           </button>
         </div>
       </nav> 
-
-      <script>
-
-        /*
-            
-        
-        */
-
-
-      </script>
-
-
-
 
     <ul class="list-group">
         <li class="list-group-item">An item</li>

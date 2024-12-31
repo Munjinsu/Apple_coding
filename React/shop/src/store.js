@@ -29,6 +29,18 @@ let stock = createSlice({
     initialState : [10, 11, 12]
 })
 
+// let arrayItem = createSlice({
+//     name : 'watched',
+//     initialState : [],
+//     reducers : {
+//         watched(state, action){
+//             state.unshift(action.payload);
+//         }
+//     }
+// })
+
+// export let { watched } = arrayItem.actions
+
 
 let shopData = createSlice({
     name :  'shopData',
@@ -87,5 +99,6 @@ export default configureStore({
     user : user.reducer,
     stock : stock.reducer,
     shopData : shopData.reducer,
+    //arrayItem : arrayItem.reducer,
   }
 })

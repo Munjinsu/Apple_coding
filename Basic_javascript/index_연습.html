@@ -10,25 +10,16 @@
 </head>
 <body>
 
-    <div class="black-bg">
-        <div class="white-bg">
-          <h4>로그인하세요</h4>
+    <div class="alert-box" id="alert">
+        <p class="txt">알림창</p> 
+        <button class="txt" id="close">  <!--  onclick="알림창열기('none')" -->
+        닫기 
+        </button>
+     </div>
+    <button onclick="알림창열기('block','아이디를 입력해주세요')"> 버튼1 </button> 
+    <button onclick="알림창열기('block', '비빌번호를 입력해주세요')"> 버튼2 </button> 
 
-          <form action="success.html" id="login-form">
-            <div class="my-3">
-              <input type="text" id="id-input" class="form-control">
-             </div>
-             <div class="my-3">
-               <input type="password" id="pw-input" class="form-control">
-             </div>
-             <button type="submit" class="btn btn-primary">전송</button>
-             <button type="button" class="btn btn-danger" id="close">닫기</button>
-          </form> 
 
-        </div>
-      </div>
-
- 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">Navbar</span>
@@ -38,19 +29,6 @@
         </div>
       </nav> 
 
-      <script>
-
-        /*
-            
-        
-        */
-
-
-      </script>
-
-
-
-
     <ul class="list-group">
         <li class="list-group-item">An item</li>
         <li class="list-group-item">A second item</li>
@@ -59,11 +37,7 @@
         <li class="list-group-item">And a fifth one</li>
       </ul> 
     
-      <div class="main-bg">
-        <h4>shirts on sale</h4>
-        <button id="login" class="btn btn-danger login-btn"> 로그인</button>
-      </div>
-      
+
 
 
     <!-- 

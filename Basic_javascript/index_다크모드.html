@@ -28,28 +28,46 @@
         </div>
       </div>
 
- 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">Dark 🔄</span>
           <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-      </nav> 
+    </nav> 
 
-      <script>
+    <script>  
 
         /*
-            
-        
+          변수는 왜 쓰는가
+          1. 길고 복잡한 자료들 저장
+          2. 특정값을 기억하게 만들고 싶을때
         */
 
+        // badge 클릭횟수가 홀수면 내부 글자를 light 로 변경
+        // badge 클릭횟수가 짝수면 내부 글자를 dark 로 변경
 
-      </script>
+        var count = 0;
 
+        document.querySelector('.badge').addEventListener('click', function(){
+          count++;
+          // count += 1;
+          // count = count + 1;
+          console.log(count)
+          
+           if(count % 2 == 1){  // 홓수면
+            document.querySelector('.badge').innerHTML = 'light 🔄'
+           }
+           else {
+            document.querySelector('.badge').innerHTML = 'Dark 🔄'
+           }
+        })
 
+        
 
+    </script>
 
     <ul class="list-group">
         <li class="list-group-item">An item</li>

@@ -41,9 +41,66 @@
       <script>
 
         /*
-            
-        
+        변수의 선언, 할당, 범위
+         
         */
+
+        var 이름  // 변수 선언
+        var 이름 = 'kim'  // 할당
+        이름 = 'park'  // 제할당
+
+
+        function 함수(){
+          var 이름2 = 'kim'   // 함수 바깥에서 만든 변수는 안에서 사용가능
+        }
+
+        //console.log(이름2)  // undefinde
+
+        /* 
+          let 
+          - 제선언 x 
+            let 이름 = 'kim'
+            let 이름 = 'park' 
+          - 재할당 O 
+            let 이름 = 'kim'
+            이름 = 'park' 
+
+          const
+           - 제선언 x 
+            let 이름 = 'kim'
+            let 이름 = 'park' 
+          - 재할당 x 
+            let 이름 = 'kim'
+            이름 = 'park' 
+
+        */
+
+
+        // let age = 20;
+        // const place = '대한민국'
+
+
+        // var 예금액 = 60000;
+        // var 미래예금액 = 0
+
+        // if(예금액 < 50000){
+        //   미래예금액 = 예금액 * 1.15 * 1.15 
+        // }
+        // if(예금액 >= 50000){
+        //   미래예금액 = 예금액 * 1.2 * 1.2 
+        // }
+
+
+        // console.log(미래예금액)
+
+
+
+        // var first = 360
+        // var second = first / 1.5;
+        // var third = second / 1.5
+        // var total = first + second + third
+
+        // console.log(total)
 
 
       </script>
